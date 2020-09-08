@@ -1,11 +1,6 @@
 /* Disk Geometry: 5.25" DSDD 1.2 MB */
 /* Heads 2 ; Cylinders 80 ; Sectors per Cylinder 15 ; Sector Size 512*/
 
-LD_DISK_SSIZE = 512;
-LD_DISK_SPC = 15;
-LD_DISK_C = 80;
-LD_DISK_H = 2;
-
 ENTRY(_start)
 SECTIONS
 {
