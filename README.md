@@ -36,6 +36,18 @@ FILL(0x0)
 SHORT(0xaa55);
 ```
 Self-explanatory. We load the binary from entry.asm first, then fill the rest of the boot sector with 0 bytes and define the MBR signature at the end.
+
+```c
+//main.c:
+#define C_ENTRY __attribute__((section(".text.main")))
+C_ENTRY void __main(void);
+
+//linker.ld:
+*(.text.main)
+*(.text)        /* Correct order for .text section */
+```
+We have to make sure that the main function is _actually_ the main function/entry point of the c binary. Otherwise, other functions could get called ahead of it.
+
 ```c
 /* Calculate how many sectors section takes up */
 __c_sectors = ((__c_end - __c_start) / 512) - 0x600 + 1;
