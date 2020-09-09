@@ -15,6 +15,7 @@ SECTIONS
     /* C Code*/
     __c_start = .; /* Should always be 0x800 */
 
+    *(.text.main)
     *(.text)
     *(.data)
     *(.rodata)
