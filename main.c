@@ -1,4 +1,6 @@
-void __main(void) {
+#define C_ENTRY __attribute__((section(".text.main")))
+
+C_ENTRY void __main(void) {
     int i;
     char s[] = {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
     for (i = 0; i < sizeof(s); ++i) {
